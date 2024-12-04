@@ -9,6 +9,7 @@ import decorator.Ticket;
 
 import java.util.Scanner;
 
+// The main class where the user is asked questions for their reservation.
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -44,6 +45,7 @@ public class Main {
         int layoverCount = scanner.nextInt();
         scanner.nextLine();
 
+        // loops through list
         for (int i = 0; i < layoverCount; i++) {
             System.out.print("Enter layover " + (i + 1) + " airport code: ");
             String airportCode = scanner.nextLine();
@@ -61,6 +63,7 @@ public class Main {
         int ticketCount = scanner.nextInt();
         scanner.nextLine();
 
+        // loops through list
         for (int i = 0; i < ticketCount; i++) {
             System.out.println("Ticket " + (i + 1) + ":");
             System.out.print("Enter full name: ");
@@ -105,18 +108,19 @@ public class Main {
             System.out.println("  - " + layover.getAirportCode() + " (" + layover.getDuration() + " minutes)");
         }
         System.out.println("Tickets:");
+        // loops through list
         for (int i = 0; i < reservation.getTickets().size(); i++) {
             Ticket ticket = reservation.getTickets().get(i);
-            System.out.println("  Ticket " + (i + 1) + ": " + ticket.getFullName());
-            System.out.println("    Seat Class: " + ticket.getSeatClass());
-            System.out.println("    Seat Number: " + ticket.getSeatNumber());
-            System.out.println("    Boarding Class: " + ticket.getBoardingClass());
-            System.out.println("    Checked Bags: " + ticket.getCheckedBags());
-            System.out.println("    Cost: $" + ticket.calculateCost());
+            System.out.println("Ticket " + (i + 1) + ": " + ticket.getFullName());
+            System.out.println("Seat Class: " + ticket.getSeatClass());
+            System.out.println("Seat Number: " + ticket.getSeatNumber());
+            System.out.println("Boarding Class: " + ticket.getBoardingClass());
+            System.out.println("Checked Bags: " + ticket.getCheckedBags());
+            System.out.println("Cost: $" + ticket.calculateCost());
         }
         System.out.println("Total Cost: $" + reservation.getTotalCost());
 
-        System.out.println("\nThank you for using the Airline Reservation System!");
+        System.out.println("Thank you for using the Airline Reservation System!");
         scanner.close();
     }
 }
